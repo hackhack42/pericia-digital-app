@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-elite: var(--font-elite), "Courier New", monospace;
+  --font-hand: var(--font-hand), cursive;
+}
+
+html, body {
+  background: #0a0a0c;
+  color: #e7e5e0;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #8f1f1f;
+  color: #fff;
+}
+
+/* ---- grain overlay ---- */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 8s steps(10) infinite;
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -2%); }
+  80% { transform: translate(3%, 3%); }
+}
+
+/* ---- scrollbars ---- */
+.nice-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
+.nice-scroll::-webkit-scrollbar-track { background: transparent; }
+.nice-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 99px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* ---- paper / dossier ---- */
+.paper {
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(201,168,106,0.10), transparent 55%),
+    linear-gradient(160deg, #17150f 0%, #12100b 60%, #0f0d09 100%);
+  border: 1px solid rgba(201,168,106,0.18);
+}
+
+.redacted {
+  font-family: var(--font-elite);
+  letter-spacing: 0.08em;
+}
+
+/* ---- shake animation (wrong PIN) ---- */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-12px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-7px); }
+  80% { transform: translateX(5px); }
+}
+.animate-shake { animation: shake 0.45s ease both; }
+
+/* ---- typewriter caret ---- */
+.caret::after {
+  content: "▌";
+  margin-left: 2px;
+  color: #c9a86a;
+  animation: blink 0.9s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---- pin glow pulse for undiscovered evidence ---- */
+@keyframes ping-soft {
+  0% { box-shadow: 0 0 0 0 rgba(201,168,106,0.45); }
+  70% { box-shadow: 0 0 0 9px rgba(201,168,106,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,168,106,0); }
+}
+.ping-soft { animation: ping-soft 1.8s ease-out infinite; }
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.6; }
+  94% { opacity: 1; }
+  97% { opacity: 0.75; }
+}
+.flicker { animation: flicker 6s linear infinite; }
+
+/* ---- acessibilidade ---- */
+:focus-visible {
+  outline: 2px solid #c9a86a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .grain::after { animation: none; }
+}
+
+/* alvos de toque confortáveis no mobile */
+@media (max-width: 1023px) {
+  button, a { touch-action: manipulation; }
+}
+
+/* escala de fonte controlada pelo painel de preferências */
+html { font-size: 16px; }
+
+/* ---- infecção / glitch do terminal ---- */
+.glitch-scan {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 60, 0.10) 0px,
+    rgba(255, 0, 60, 0.10) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scanmove 0.6s linear infinite;
+}
+@keyframes scanmove {
+  from { background-position-y: 0; }
+  to { background-position-y: 8px; }
+}

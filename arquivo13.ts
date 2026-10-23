@@ -1,0 +1,235 @@
+import type { CaseData } from "../types";
+
+export const arquivo13Case: CaseData = {
+  id: "arquivo13",
+  no: "013",
+  title: "Arquivo 13",
+  tagline: "O caso frio que a própria delegacia enterrou. A vítima era um dos nossos.",
+  difficulty: 3,
+  minRank: 5,
+  pin: "0000",
+  pattern: [2, 4, 6, 7, 8],
+  patternHint:
+    "Perícia ótica: o traço começa no canto superior DIREITO, passa pelo centro, desce ao canto inferior esquerdo e corre toda a base — um “Z” invertido. Era o símbolo que ele desenhava nos relatórios para indicar arquivo falsificado.",
+  pinHints: [
+    "Este aparelho não aceita número: abre por DESENHO. Esqueça datas.",
+    "O delegado aposentado conta: ele marcava relatório adulterado com um Z invertido, começando pela direita.",
+    "Canto superior direito → centro → canto inferior esquerdo → base inteira até a direita.",
+  ],
+  lockTime: "19:33",
+  lockDate: "quinta-feira, 13 de março",
+  victim: {
+    name: "Investigador Aldo Ferrez",
+    age: 49,
+    role: "perito digital da própria delegacia",
+    photo: "/people/m9.webp",
+    line1: "22 anos de corporação · responsável pela extração dos celulares de todos os casos deste arquivo.",
+    line2: "Encontrado no estacionamento do IML. Registrado como suicídio. O aparelho dele ficou 6 anos numa gaveta.",
+  },
+  briefing: [
+    "ARQUIVO 13 — CASO FRIO · ACESSO RESTRITO À CHEFIA DE PERÍCIA",
+    "Vítima: Aldo Ferrez, 49, perito digital DESTA delegacia. Morto há seis anos.",
+    "Encontrado no estacionamento do IML, com a própria arma. Registrado como suicídio em 48 horas.",
+    "PROBLEMA 1: ele era canhoto. O disparo entrou pelo lado direito.",
+    "PROBLEMA 2: o laudo original sumiu do sistema. Existe apenas uma cópia impressa, incompleta.",
+    "PROBLEMA 3: na semana da morte, ele reabriu três inquéritos arquivados por falta de prova.",
+    "O celular dele ficou seis anos lacrado numa gaveta da corregedoria. Ninguém pediu a abertura.",
+    "O aparelho abre por PADRÃO DE DESENHO — e ele era quem ensinava isso a todos nós.",
+    "Chefe de Perícia: este caso é seu porque ninguém acima de você quis assinar embaixo.",
+  ],
+  timeline: [
+    ["16:10", "Aldo solicita no sistema a reabertura de três inquéritos arquivados."],
+    ["17:02", "Acesso negado. Solicitação bloqueada por um superior."],
+    ["18:40", "Ele imprime cópias físicas dos laudos e sai do prédio."],
+    ["19:33", "Última atividade do celular: foto de um envelope pardo no banco do carro."],
+    ["19:41", "Disparo no estacionamento do IML. Sem câmeras — o setor estava “em manutenção”."],
+    ["19:58", "Primeiro a chegar ao local: o então corregedor."],
+    ["+48 h", "Caso encerrado como suicídio. Laudo original removido do sistema."],
+  ],
+  evidence: {
+    msg_galvao_bloqueio: { id: "msg_galvao_bloqueio", title: "O bloqueio da reabertura", desc: "O corregedor Galvão nega a reabertura por escrito e manda Aldo “parar de mexer em caso enterrado”.", source: "Mensagens" },
+    msg_nereu_medo: { id: "msg_nereu_medo", title: "O parceiro acovardado", desc: "Nereu, parceiro de equipe, recusa assinar junto a reabertura: “tenho dois filhos, Aldo. não conta comigo nessa”.", source: "Mensagens" },
+    msg_bibi_jornal: { id: "msg_bibi_jornal", title: "Contato com a imprensa", desc: "A repórter Bibiana combinou de receber um envelope com os três laudos na sexta-feira seguinte.", source: "Mensagens" },
+    note_tres: { id: "note_tres", title: "Os três inquéritos", desc: "Nota da vítima: “3 casos, 3 laudos trocados, 1 assinatura em comum. não é incompetência, é padrão.”", source: "Notas" },
+    note_canhoto: { id: "note_canhoto", title: "Detalhe que ninguém leu", desc: "Ficha funcional dele, anexada: destro para escrita, CANHOTO para arma — registro do estande de tiro, 22 anos.", source: "Notas" },
+    photo_envelope: { id: "photo_envelope", title: "Última foto — 19:33", desc: "Envelope pardo no banco do carro, lacrado, endereçado à redação. O envelope nunca foi encontrado na perícia.", source: "Fotos" },
+    log_camera: { id: "log_camera", title: "Câmeras “em manutenção”", desc: "A ordem de manutenção do circuito do estacionamento foi emitida às 18:12 daquele dia — e cancelada às 21:00.", source: "Sistema" },
+    log_sistema: { id: "log_sistema", title: "Quem apagou o laudo", desc: "Log de auditoria recuperado: o laudo original foi removido do sistema por uma credencial de nível corregedoria, 31 horas após a morte.", source: "Sistema" },
+    bank_galvao: { id: "bank_galvao", title: "Dinheiro dos três casos", desc: "App do banco: cruzamento mostra depósitos de R$ 410 mil ao corregedor nas semanas de arquivamento dos três inquéritos.", source: "Banco" },
+    vault_laudos: { id: "vault_laudos", title: "Os três laudos no cofre", desc: "Arquivo oculto: fotografias dos laudos originais dos três casos, todos com a mesma assinatura de homologação — e todos contrariando o arquivamento.", source: "Cofre" },
+    trash_audio: { id: "trash_audio", title: "Áudio recuperado da lixeira", desc: "Gravação ambiente feita pelo próprio Aldo às 17:04: uma voz manda ele “largar o Arquivo 13 enquanto é tempo”.", source: "Lixeira forense" },
+    cloud_search: { id: "cloud_search", title: "Nuvem dele: as buscas", desc: "Backup do corregedor: “remoção de laudo do sistema deixa log?”, “tempo de guarda de imagens do estacionamento”, “suicídio inquérito prazo de conclusão”.", source: "Anexo nuvem" },
+    cloud_note: { id: "cloud_note", title: "Nuvem dele: a ordem", desc: "Nota apagada: “manutenção no circuito às 18h. ele sai 18h40. pegar o envelope do banco do carro. 48h e isso vira suicídio.”", source: "Anexo nuvem" },
+  },
+  conversations: [
+    {
+      id: "galvao", name: "Corregedor Galvão", sub: "superior hierárquico", avatar: "/people/m5.webp", time: "17:10", unread: 1,
+      messages: [
+        { id: "g1", from: "me", text: "Protocolei a reabertura dos três inquéritos. Mesma assinatura de homologação nos três arquivamentos.", time: "13/03 · 16:12" },
+        { id: "g2", from: "them", text: "Negado. Você é perito, Ferrez, não delegado. Faça extração de celular e vá pra casa.", time: "13/03 · 17:02", evidenceId: "msg_galvao_bloqueio" },
+        { id: "g3", from: "me", text: "A assinatura é a sua, doutor. Nos três.", time: "13/03 · 17:08" },
+        { id: "g4", from: "them", text: "Pare de mexer em caso enterrado. Isso é um conselho de quem gosta de você e assina a sua avaliação funcional.", time: "13/03 · 17:10" },
+        { id: "g5", from: "them", kind: "deleted", text: "Desce no estacionamento. Vamos resolver isso olho no olho, sem sistema, sem protocolo.", time: "13/03 · 19:20" },
+      ],
+    },
+    {
+      id: "nereu", name: "Nereu Amado", sub: "parceiro de equipe", avatar: "/people/m3.webp", time: "16:40",
+      messages: [
+        { id: "n1", from: "me", text: "Nereu, assina comigo. Dois peritos pedindo juntos eles não conseguem engavetar.", time: "13/03 · 16:20" },
+        { id: "n2", from: "them", text: "Tenho dois filhos, Aldo. Não conta comigo nessa. Me desculpa de verdade.", time: "13/03 · 16:40", evidenceId: "msg_nereu_medo" },
+        { id: "n3", from: "me", text: "Entendo. Fica quieto então. Mas se me acontecer alguma coisa, você sabe onde está tudo.", time: "13/03 · 16:44" },
+        { id: "n4", from: "them", text: "Não fala assim, caramba.", time: "13/03 · 16:45" },
+      ],
+    },
+    {
+      id: "bibi", name: "Bibiana Rocha", sub: "repórter investigativa", avatar: "/people/f10.webp", time: "18:50",
+      messages: [
+        { id: "b1", from: "them", text: "Aldo, meu editor aprovou. Pode trazer o material na sexta, 10h, na redação.", time: "12/03 · 19:02", evidenceId: "msg_bibi_jornal" },
+        { id: "b2", from: "me", text: "Três laudos, três casos, uma assinatura. Vou num envelope pardo, nada digital. Sistema aqui tem dono.", time: "12/03 · 19:20" },
+        { id: "b3", from: "them", text: "Combinado. E Aldo: não conta pra ninguém de dentro que você vai me procurar. Pra NINGUÉM.", time: "12/03 · 19:24" },
+        { id: "b4", from: "them", text: "Boa sorte hoje com a reabertura. Sexta a gente conversa.", time: "13/03 · 18:50" },
+      ],
+    },
+  ],
+  calls: [
+    { id: "c1", name: "Corregedoria — ramal 02", sub: "interno", type: "in", time: "13/03 · 19:18", duration: "1:04" },
+    { id: "c2", name: "Bibiana Rocha", sub: "celular", type: "out", time: "12/03 · 19:00", duration: "14:22" },
+    { id: "c3", name: "Nereu Amado", sub: "interno", type: "out", time: "13/03 · 16:18", duration: "4:40" },
+    { id: "c4", name: "Estande de Tiro — Clube", sub: "comercial", type: "in", time: "10/03 · 11:00", duration: "2:10" },
+  ],
+  photos: [
+    { id: "p1", url: "https://images.pexels.com/photos/4774367/pexels-photo-4774367.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", caption: "—", date: "13/03 · 19:33", location: "Estacionamento do IML — vaga 14", evidenceId: "photo_envelope", exif: { camera: "iPhone (6 anos) · f/2.2", taken: "13/03 · 19:33:50", gps: "IML — estacionamento interno", coords: "-23.55742, -46.64110", note: "Envelope pardo lacrado no banco do passageiro, com endereçamento à redação. Nunca constou no inventário da perícia." } },
+    { id: "p2", url: "https://images.pexels.com/photos/12616007/pexels-photo-12616007.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", caption: "Sala de extração. 22 anos nessa cadeira.", date: "02/03 · 09:10", location: "Delegacia — perícia digital" },
+    { id: "p3", kind: "pix", caption: "Oculta — os três laudos originais", date: "13/03 · 18:44", location: "Pasta protegida", hidden: true, evidenceId: "vault_laudos", exif: { camera: "Captura", taken: "13/03 · 18:44", note: "Três laudos periciais originais, todos contrariando o arquivamento e homologados pela mesma autoridade." } },
+  ],
+  notes: [
+    { id: "n1", title: "arquivo 13", body: "3 casos, 3 laudos trocados, 1 assinatura em comum.\nnão é incompetência, é padrão.\nse eu reabrir sozinho, engavetam. se a imprensa receber, não tem como engavetar.\nsexta, 10h, redação. envelope pardo, nada digital.", updated: "12/03 · 23:40", evidenceId: "note_tres" },
+    { id: "n2", title: "minha ficha (anexo)", body: "escrita: destro.\nARMA: CANHOTO. 22 anos de estande, sempre a esquerda.\nse um dia alguém disser o contrário sobre mim, está mentindo.", updated: "10/03 · 11:20", evidenceId: "note_canhoto" },
+    { id: "n3", title: "acessos", body: "este aparelho abre por desenho: o Z invertido, o mesmo que eu marco em relatório adulterado.\ncomeça pela direita, sempre pela direita.\ncofre: o número do arquivo.", updated: "01/03 · 08:00" },
+  ],
+  mails: [
+    { id: "e1", from: "Sistema Integrado — SIP", address: "naoresponda@sip.gov.br", subject: "Solicitação 77-1182 NEGADA", preview: "Sua solicitação de reabertura dos inquéritos 221/09, 334/10 e 402/11 foi negada pela autoridade superior…", body: "PROTOCOLO 77-1182\n\nSolicitante: A. FERREZ (perícia digital)\nObjeto: reabertura dos inquéritos 221/09, 334/10 e 402/11\nStatus: NEGADO\nAutoridade: Corregedoria\nJustificativa: “ausência de fato novo relevante”\n\nEsta decisão não comporta recurso na esfera administrativa.", time: "13/03 · 17:02" },
+    { id: "e2", from: "Clube de Tiro Bandeirantes", address: "secretaria@ctbandeirantes.com.br", subject: "Renovação de habilitação — relatório", preview: "Mão dominante para prática: ESQUERDA. 22 anos de registro…", body: "Prezado Aldo Ferrez,\n\nSegue o relatório de renovação:\n\n— Mão dominante para prática de tiro: ESQUERDA\n— Registro contínuo: 22 anos\n— Última avaliação: aprovado com distinção\n\nClube de Tiro Bandeirantes", time: "10/03 · 11:10" },
+  ],
+  history: [
+    { id: "h1", title: "como protocolar reabertura de inquérito arquivado", url: "sip.gov.br/reabertura", time: "13/03 · 15:40" },
+    { id: "h2", title: "proteção a servidor denunciante lei", url: "jus.com.br/whistleblower", time: "12/03 · 22:10" },
+    { id: "h3", title: "redação jornal endereço entrega em mãos", url: "jornaldacapital.br/contato", time: "12/03 · 23:50" },
+  ],
+  bank: {
+    password: "2213",
+    hint: "A nota “acessos” diz que o cofre é o número do arquivo. Para o banco, ele usava os anos de corporação seguidos do número do caso: 22 e 13.",
+    holder: "ALDO FERREZ — BANCO DO SERVIDOR ····0013",
+    balance: "R$ 22.104,00",
+    txns: [
+      { id: "t1", desc: "RELATÓRIO CRUZADO (6 anos depois) — depósitos → A. GALVÃO nas semanas dos 3 arquivamentos", date: "13/03", amount: "-R$ 410.000,00", out: true, evidenceId: "bank_galvao" },
+      { id: "t2", desc: "Salário — Secretaria de Segurança", date: "05/03 · 06:00", amount: "+R$ 9.820,00", out: false },
+      { id: "t3", desc: "Clube de Tiro Bandeirantes — anuidade", date: "10/03 · 11:15", amount: "-R$ 680,00", out: true },
+      { id: "t4", desc: "Papelaria Central — envelopes pardos e cópias", date: "13/03 · 18:30", amount: "-R$ 42,00", out: true },
+    ],
+  },
+  vault: { code: "13", hint: "A nota diz: o número do arquivo. É o 13." },
+  trash: [
+    {
+      id: "tr-a13-1",
+      type: "audio",
+      label: "Gravação ambiente apagada · 17:04 (setor 0x0D13)",
+      fragments: ["larga o arquivo 13", "enquanto é tempo", "eu assino a sua", "avaliação funcional, Ferrez"],
+      recovered:
+        "Gravação ambiente de 41 segundos, feita pelo próprio Aldo às 17:04: uma voz masculina diz “larga o Arquivo 13 enquanto é tempo — eu assino a sua avaliação funcional, Ferrez”. A voz foi identificada por comparação espectral.",
+      evidenceId: "trash_audio",
+    },
+    {
+      id: "tr-a13-2",
+      type: "documento",
+      label: "Cópia de log apagada · auditoria (setor 0x2A77)",
+      fragments: ["remoção do laudo", "credencial nível", "corregedoria", "31 horas após o óbito"],
+      recovered: "Trecho do log de auditoria: remoção do laudo original por credencial de nível corregedoria, 31 horas após o óbito.",
+      evidenceId: "log_sistema",
+    },
+  ],
+  suspects: [
+    { id: "galvao", name: "Aristides Galvão", role: "Ex-corregedor · 67 anos (aposentado)", avatar: "/people/m5.webp", bio: "Homologou os arquivamentos dos três inquéritos reabertos por Aldo. Negou a reabertura por escrito, foi o primeiro a chegar ao corpo e assinou o encerramento em 48 horas." },
+    { id: "nereu", name: "Nereu Amado", role: "Perito · 54 anos", avatar: "/people/m3.webp", bio: "Parceiro de equipe de Aldo por 11 anos. Recusou-se a assinar a reabertura alegando medo pela família — e nunca mais tocou no assunto." },
+    { id: "bibi", name: "Bibiana Rocha", role: "Repórter investigativa · 41 anos", avatar: "/people/f10.webp", bio: "Receberia o envelope com os três laudos na sexta-feira. Perdeu a maior matéria da carreira com a morte da fonte." },
+  ],
+  interrogations: {
+    galvao: [
+      { id: "q1", q: "O senhor foi o primeiro a chegar ao corpo.", a: "Eu estava no prédio, ouvi o disparo e desci. Trinta e um anos de corporação me ensinaram a correr na direção do barulho, não na direção contrária. Isso agora é indício?" },
+      { id: "q2", q: "O senhor negou a reabertura dos três inquéritos naquela tarde.", a: "Neguei porque não havia fato novo. É decisão administrativa fundamentada, está no sistema. Ferrez era obsessivo, via conspiração em erro de digitação.", requiresEvidence: "msg_galvao_bloqueio" },
+      { id: "q3", q: "As câmeras do estacionamento entraram em manutenção às 18:12 e voltaram às 21h.", a: "Manutenção preventiva é rotina. Eu nem sabia dessa ordem. …O senhor está sugerindo que um corregedor desliga câmera para matar um perito dentro do IML?", requiresEvidence: "log_camera" },
+      { id: "q4", q: "Os três laudos originais estavam no cofre do celular dele. Todos com sua assinatura.", a: "(Muito longo silêncio. Ele se recosta.) Seis anos, meu jovem. Seis anos esperando alguém ter patente pra abrir aquela gaveta. (Pausa.) Eu quero meu advogado. E boa sorte com a sua avaliação funcional.", requiresEvidence: "vault_laudos" },
+    ],
+    nereu: [
+      { id: "q1", q: "O senhor se recusou a assinar com ele.", a: "Recusei. Covardia pura, e eu convivo com isso todo dia há seis anos. Mas covarde não é assassino, detetive. Eu fui no velório e não consegui olhar pra viúva dele.", requiresEvidence: "msg_nereu_medo" },
+      { id: "q2", q: "Onde o senhor estava às 19h41?", a: "Na escola dos meus filhos, reunião de pais, das 19h às 21h. Lista de presença com assinatura e duas professoras que lembram de mim porque eu chorei na reunião. Eu já sabia que ia dar merda." },
+      { id: "q3", q: "Ele era canhoto?", a: "Pra arma, sempre. Vinte e dois anos de estande, sempre esquerda. Quando eu li “disparo do lado direito” no relatório, eu soube na hora. E não disse nada. É isso que eu carrego." },
+    ],
+    bibi: [
+      { id: "q1", q: "A senhora receberia o material na sexta.", a: "Três laudos, em papel, entregues em mãos. Ele não confiava em nada digital de dentro da delegacia. Na sexta eu esperei três horas na redação antes de ler a notícia no feed.", requiresEvidence: "msg_bibi_jornal" },
+      { id: "q2", q: "A senhora lucraria com a morte da fonte?", a: "Jornalista não lucra com fonte morta, lucra com fonte viva e falante. Eu perdi a matéria, perdi o contato e ganhei seis anos de pesadelo. Eu tentei publicar sem os documentos e o jurídico barrou." },
+      { id: "q3", q: "Por que a senhora não procurou a polícia?", a: "Procurei. Protocolei em abril daquele ano. Sabe quem respondeu meu pedido de informação? A corregedoria. A mesma assinatura dos três arquivamentos. Aí eu entendi o tamanho do buraco e fiquei quieta." },
+    ],
+  },
+  cloud: {
+    owner: "A. Galvão",
+    items: [
+      { id: "i1", kind: "search", label: "Buscas recuperadas — 13 a 15/03 (6 anos atrás)", detail: "“remoção de laudo do sistema deixa log?” · “tempo de guarda de imagens do estacionamento” · “suicídio inquérito prazo de conclusão”", evidenceId: "cloud_search" },
+      { id: "i2", kind: "photo", label: "Foto — envelope pardo rasgado", detail: "Imagem de um envelope pardo aberto sobre uma mesa doméstica, com três folhas visíveis, datada de 14/03 às 00:22." },
+      { id: "i3", kind: "note", label: "Nota apagada — “quinta”", detail: "manutenção no circuito às 18h. ele sai 18h40. pegar o envelope do banco do carro. 48h e isso vira suicídio. depois o laudo some do sistema.", evidenceId: "cloud_note" },
+    ],
+  },
+  motives: [
+    { id: "encobrir", label: "Encobrir os três inquéritos arquivados mediante pagamento e impedir a entrega à imprensa" },
+    { id: "medo", label: "Medo de represália dentro da corporação" },
+    { id: "materia", label: "Obter a matéria jornalística a qualquer custo" },
+    { id: "suicidio", label: "Suicídio, como consta no registro original" },
+  ],
+  methods: [
+    { id: "forjado", label: "Disparo forjado como suicídio (lado oposto à mão dominante) + câmeras desligadas" },
+    { id: "suicidio", label: "Suicídio consumado pelo próprio investigador" },
+    { id: "luta", label: "Disparo acidental durante luta corporal" },
+    { id: "emboscada", label: "Emboscada por terceiro externo à corporação" },
+  ],
+  web: [
+    { id: "w1", title: "Perito da delegacia é encontrado morto no estacionamento do IML", source: "Jornal da Capital (arquivo, 6 anos)", url: "jornaldacapital.br/arquivo/ferrez", body: "O investigador Aldo Ferrez, 49, perito digital com 22 anos de corporação, foi encontrado morto no estacionamento do IML. O caso foi concluído como suicídio em 48 horas. Colegas estranharam a rapidez.", keywords: ["aldo", "ferrez", "perito", "iml", "suicídio", "suicidio", "arquivo 13"] },
+    { id: "w2", title: "Os três inquéritos que ninguém quis reabrir", source: "Reportagem Livre", url: "reportagemlivre.org/tres-inqueritos", body: "Os processos 221/09, 334/10 e 402/11 foram arquivados por “insuficiência probatória” apesar de laudos periciais conclusivos. Os três têm a mesma autoridade homologadora — hoje aposentada com proventos integrais.", keywords: ["inquéritos", "inqueritos", "arquivados", "laudos", "galvão", "galvao", "corregedoria"] },
+    { id: "w3", title: "Lateralidade e cena de morte: o que o laudo deve registrar", source: "Ciência Forense BR", url: "cienciaforense.br/lateralidade", body: "A mão dominante para manuseio de arma é dado objetivo e verificável em registros de estande. Divergência entre lateralidade e trajetória do disparo é um dos indicadores clássicos de cena forjada.", keywords: ["canhoto", "lateralidade", "disparo", "cena forjada", "mão dominante", "mao dominante"] },
+  ],
+  hints: [
+    "Este aparelho não tem senha numérica: abre por DESENHO. Leia o briefing e as Notas dele sobre o Z invertido.",
+    "Comece no canto superior DIREITO, vá ao centro, desça ao canto inferior esquerdo e percorra toda a base.",
+    "Nas Notas há a ficha funcional dele: era CANHOTO para arma. O disparo entrou pela direita.",
+    "O cofre da Calculadora pede o número do arquivo: 13. Lá estão os três laudos originais.",
+    "Vá em Ajustes → Lixeira forense: há uma gravação ambiente de 41 segundos feita por ele mesmo naquela tarde.",
+    "Nereu tem lista de presença em reunião escolar e Bibiana esperou três horas na redação. Risque os dois.",
+    "A tríade: a negativa de reabertura por escrito, os três laudos no cofre e o cruzamento bancário dos R$ 410 mil.",
+  ],
+  epilogues: {
+    perfect: {
+      title: "ARQUIVO 13 — ENCERRADO",
+      text: [
+        "Aristides Galvão foi preso em casa, seis anos depois, com proventos integrais e um envelope pardo rasgado guardado numa caixa de sapatos — as três folhas ainda dentro.",
+        "A gravação de 41 segundos, apagada do aparelho e recuperada setor a setor, trouxe a voz dele dizendo a Aldo para largar o Arquivo 13 “enquanto é tempo”. A comparação espectral levou nove minutos.",
+        "Os três inquéritos foram reabertos no mesmo despacho. Os R$ 410 mil vieram de três famílias diferentes, em três semanas diferentes, todas na véspera de um arquivamento.",
+        "A sala de extração digital da delegacia recebeu uma placa pequena, sem cerimônia, a pedido da viúva: “Aldo Ferrez — ele abriu o aparelho que ninguém queria abrir”. Você passa por ela todos os dias agora, Chefe de Perícia.",
+      ],
+    },
+    weak: {
+      title: "ARQUIVADO OUTRA VEZ",
+      text: [
+        "Você apontou o nome certo. Mas acusar um ex-corregedor com prova parcial é entregar a ele o microfone: sem a negativa por escrito, sem os laudos do cofre e sem o cruzamento bancário, a defesa transformou tudo em perseguição de um perito obsessivo.",
+        "O Arquivo 13 voltou à gaveta, agora com o seu nome na última folha.",
+        "O celular continua lacrado. Alguém, um dia, vai ter patente para abrir de novo.",
+      ],
+    },
+    wrong: {
+      title: "INQUÉRITO ANULADO",
+      text: [
+        "O parceiro estava numa reunião de pais com lista de presença; a repórter, esperando três horas numa redação cheia de testemunhas. Acusá-los foi o presente que faltava para a defesa.",
+        "O verdadeiro autor deu uma entrevista serena sobre “o peso emocional da carreira policial” e a importância de “não transformar tragédia em teoria”.",
+        "O Arquivo 13 segue frio. Reabra o dossiê — você é a última pessoa que pode.",
+      ],
+    },
+  },
+};

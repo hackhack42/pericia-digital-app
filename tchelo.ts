@@ -1,0 +1,233 @@
+import type { CaseData } from "../types";
+
+export const tcheloCase: CaseData = {
+  id: "tchelo",
+  no: "0631",
+  title: "Última Rodada",
+  tagline: "O caixa aberto e vazio contava uma história de assalto. A lixeira do celular contava outra.",
+  difficulty: 2,
+  minRank: 2,
+  pin: "0209",
+  pinHints: [
+    "Ele dizia que o bar era o filho dele. A senha é a data em que esse filho nasceu.",
+    "A esposa lembra na hora: O Bastidor abriu em 2 de setembro, com chope de graça a noite toda.",
+    "2 de setembro → 0209.",
+  ],
+  lockTime: "02:41",
+  lockDate: "domingo, 31 de outubro",
+  victim: {
+    name: "Marcelo “Tchelo” Arantes",
+    age: 42,
+    role: "dono do bar O Bastidor",
+    photo: "/people/m5.webp",
+    line1: "Abriu O Bastidor em 02/09, há 11 anos · fazia o caixa pessoalmente toda madrugada.",
+    line2: "Encontrado no escritório do bar, atrás da cozinha. Caixa aberto, gaveta vazia, porta dos fundos destrancada.",
+  },
+  briefing: [
+    "RELATÓRIO Nº 0631 — DELEGACIA DE HOMICÍDIOS · 5º DISTRITO",
+    "Vítima: Marcelo Arantes, 42, conhecido como Tchelo, dono do bar O Bastidor.",
+    "Encontrado morto no escritório do estabelecimento às 6h50 de domingo.",
+    "Cena montada como latrocínio: caixa aberto e vazio, gaveta revirada, porta dos fundos destrancada.",
+    "PROBLEMA: não há arrombamento, e o cofre — bem mais valioso — sequer foi tocado.",
+    "A faxineira jura que o bar estava trancado por dentro quando ela chegou.",
+    "Perícia: golpe único na nuca com um objeto cilíndrico, provavelmente uma barra de ferro do estoque.",
+    "O celular estava sob a mesa, BLOQUEADO. Comece por ele — a cena mente, o aparelho não.",
+  ],
+  timeline: [
+    ["01:30", "Último cliente sai. Jair fecha o salão."],
+    ["01:58", "Sandro (fornecedor) liga pela terceira vez na noite."],
+    ["02:41", "Última atividade do celular: foto do caixa fechado, com dinheiro dentro."],
+    ["02:50–03:30", "Janela estimada da morte."],
+    ["03:12", "PIX enviado pela esposa Helena para um terceiro."],
+    ["06:50", "Faxineira encontra o corpo."],
+  ],
+  evidence: {
+    msg_jair_comissao: { id: "msg_jair_comissao", title: "Comissões atrasadas", desc: "Jair cobrava quatro meses de comissão e dizia que “ia se pagar de um jeito ou de outro”.", source: "Mensagens" },
+    msg_sandro_divida: { id: "msg_sandro_divida", title: "Cobrança do fornecedor", desc: "Sandro cobrava R$ 92 mil e deu prazo até segunda — com linguagem de agiota, não de distribuidor.", source: "Mensagens" },
+    msg_helena_seguro: { id: "msg_helena_seguro", title: "Seguro recente", desc: "Helena contratou um seguro de vida de R$ 500 mil três meses antes do crime.", source: "Mensagens" },
+    audio_gelo: { id: "audio_gelo", title: "Áudio com máquina de gelo", desc: "Transcrição forense de áudio com ruído de máquina de gelo ao fundo: a gravação foi feita DENTRO do bar, não da distribuidora.", source: "Mensagens" },
+    note_caixa2: { id: "note_caixa2", title: "O código da mesa", desc: "Nota da vítima: “cofre da calculadora = mesa 7 vezes 111”. Abre as planilhas do caixa 2.", source: "Notas" },
+    vault_planilha: { id: "vault_planilha", title: "Planilha do caixa 2", desc: "Arquivo oculto: R$ 380 mil em faturamento não declarado em 14 meses — e uma coluna de “retiradas J.” somando R$ 71 mil.", source: "Cofre" },
+    photo_caixa: { id: "photo_caixa", title: "Última foto — 02:41", desc: "Tchelo fotografou o caixa FECHADO e cheio às 02:41, por hábito. O dinheiro existia minutos antes da morte.", source: "Fotos" },
+    bank_pix_helena: { id: "bank_pix_helena", title: "PIX da esposa às 03:12", desc: "Helena enviou R$ 3.400 a um terceiro na madrugada do crime — o destinatário é uma agência de viagens.", source: "Banco" },
+    trash_alcapao: { id: "trash_alcapao", title: "Fotos da lixeira: o alçapão", desc: "Recuperadas da lixeira do app de mensagens: Jair escondendo maços de dinheiro no alçapão do estoque de bebidas.", source: "Lixeira forense" },
+    search_latrocinio: { id: "search_latrocinio", title: "Busca: como age a perícia", desc: "Histórico de um aparelho pareado ao wi-fi do bar: “latrocínio como a perícia diferencia de homicídio”.", source: "Navegador" },
+    cloud_search: { id: "cloud_search", title: "Nuvem dele: as buscas", desc: "Backup de Jair: “quanto tempo a polícia leva pra checar alçapão”, “comissão atrasada dá direito a retirar do caixa?”.", source: "Anexo nuvem" },
+    cloud_note: { id: "cloud_note", title: "Nuvem dele: o plano", desc: "Nota apagada: “esperar ele fechar o caixa. abrir gaveta depois. deixar a porta dos fundos aberta pra parecer assalto.”", source: "Anexo nuvem" },
+  },
+  conversations: [
+    {
+      id: "jair", name: "Jair Bueno", sub: "garçom chefe", avatar: "/people/m10.webp", time: "01:12", unread: 1,
+      messages: [
+        { id: "j1", from: "them", text: "Chefe, quatro meses de comissão. Quatro. Minha filha começa a escola em janeiro.", time: "25/10 · 18:40", evidenceId: "msg_jair_comissao" },
+        { id: "j2", from: "me", text: "Eu sei, Jair. Tô com o Sandro no meu pé. Segurando as pontas até dezembro.", time: "25/10 · 19:02" },
+        { id: "j3", from: "them", text: "Todo mundo segura as pontas e só eu seguro vela. Eu vou me pagar de um jeito ou de outro, chefe.", time: "25/10 · 19:10" },
+        { id: "j4", from: "me", text: "Isso é ameaça?", time: "25/10 · 19:12" },
+        { id: "j5", from: "them", text: "É cansaço. Desculpa. Fecho o salão hoje, pode ir descansando que eu cuido de tudo.", time: "31/10 · 01:12" },
+        { id: "j6", from: "them", kind: "deleted", text: "chefe, o estoque de bebida tá destrancado, deixa que eu tranco", time: "31/10 · 02:38" },
+      ],
+    },
+    {
+      id: "sandro", name: "Sandro Góis", sub: "fornecedor de bebidas", avatar: "/people/m3.webp", time: "01:58",
+      messages: [
+        { id: "s1", from: "them", text: "92 mil, Tchelo. Segunda. Não quero vir aí conversar com você na frente dos seus clientes.", time: "29/10 · 11:00", evidenceId: "msg_sandro_divida" },
+        { id: "s2", from: "me", text: "Segunda eu te pago metade. Você me conhece há dez anos, Sandro.", time: "29/10 · 11:20" },
+        { id: "s3", from: "them", text: "Conheço. Por isso ainda tô falando bonito.", time: "29/10 · 11:22" },
+        { id: "s4", from: "them", kind: "audio", duration: "0:27", text: "Mensagem de voz", transcript: "[RUÍDO DE MÁQUINA DE GELO] …eu tô aqui no teu balcão agora, Tchelo, olhando pro teu [DADOS CORROMPIDOS]. Segunda eu quero o dinheiro ou eu [INAUDÍVEL] a tua licença. [RUÍDO DE MÁQUINA DE GELO CONTÍNUO]", time: "31/10 · 01:58", evidenceId: "audio_gelo" },
+      ],
+    },
+    {
+      id: "helena", name: "Helena", sub: "esposa", avatar: "/people/f6.webp", time: "03:12",
+      messages: [
+        { id: "h1", from: "them", text: "Fechei o seguro de vida hoje. 500 mil, os dois beneficiando um ao outro. Você vive dentro daquele bar, Marcelo.", time: "28/07 · 16:40", evidenceId: "msg_helena_seguro" },
+        { id: "h2", from: "me", text: "Que mórbido kkk mas tá certo. Assino amanhã.", time: "28/07 · 16:50" },
+        { id: "h3", from: "them", text: "Marcelo, eu não aguento mais. Eu vou embora uns dias, pra casa da minha irmã em Floripa. Preciso pensar.", time: "30/10 · 22:10" },
+        { id: "h4", from: "them", text: "Comprei a passagem agora, 3.400 no PIX pra agência. Sai terça. Não me liga chorando.", time: "31/10 · 03:12" },
+      ],
+    },
+  ],
+  calls: [
+    { id: "c1", name: "Sandro Góis", sub: "celular", type: "missed", time: "31/10 · 01:58" },
+    { id: "c2", name: "Sandro Góis", sub: "celular", type: "missed", time: "31/10 · 01:12" },
+    { id: "c3", name: "Helena", sub: "celular", type: "in", time: "30/10 · 22:08", duration: "14:20" },
+    { id: "c4", name: "Jair Bueno", sub: "celular", type: "in", time: "31/10 · 00:40", duration: "1:02" },
+    { id: "c5", name: "Contador Nivaldo", sub: "comercial", type: "out", time: "29/10 · 15:00", duration: "22:40" },
+  ],
+  photos: [
+    { id: "p1", url: "https://images.pexels.com/photos/16806670/pexels-photo-16806670.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", caption: "—", date: "31/10 · 02:41", location: "O Bastidor — escritório", evidenceId: "photo_caixa", exif: { camera: "Samsung Galaxy S22 · f/1.8", taken: "31/10 · 02:41", gps: "O Bastidor — Rua Caiubi", coords: "-23.53418, -46.69002", note: "Caixa FECHADO e com dinheiro, nove minutos antes da janela da morte. A cena encontrada pela perícia foi montada depois." } },
+    { id: "p2", url: "https://images.pexels.com/photos/36826094/pexels-photo-36826094.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200", caption: "Estoque novo. O alçapão ainda range.", date: "14/10 · 11:20", location: "O Bastidor — estoque" },
+    { id: "p3", kind: "pix", caption: "Oculta — planilha do caixa 2", date: "28/10 · 23:40", location: "Pasta protegida", hidden: true, evidenceId: "vault_planilha", exif: { camera: "Captura de tela", taken: "28/10 · 23:40", note: "Coluna “retiradas J.” soma R$ 71 mil em 14 meses — retiradas não autorizadas pelo titular." } },
+  ],
+  notes: [
+    { id: "n1", title: "código do cofre", body: "cofre da calculadora = mesa 7 vezes 111\n(a mesa do fundo, a que o Jair odeia atender)\nplanilhas do 2 ficam lá. NÃO deixar no computador.", updated: "20/10 · 02:10", evidenceId: "note_caixa2" },
+    { id: "n2", title: "contas", body: "Sandro: 92 mil (segunda, metade)\ncomissões atrasadas: Jair, Duda, Rose\nseguro: pago em dia\nse dezembro for bom, respiro", updated: "29/10 · 15:30" },
+    { id: "n3", title: "senhas", body: "celular: a data que abri o bar (02/09, o melhor dia da minha vida)\nbanco: o número da licença do bar (tá em toda notificação que chega)\nalarme: 7711", updated: "02/09 · 10:00" },
+  ],
+  mails: [
+    { id: "e1", from: "Seguros Vértice", address: "apolices@vertice.com.br", subject: "Apólice 44-9021 — vigência", preview: "Capital de R$ 500.000, beneficiários recíprocos entre os cônjuges…", body: "Prezado Sr. Arantes,\n\nApólice 44-9021 ativa:\n— Capital: R$ 500.000,00\n— Beneficiários: recíprocos entre os cônjuges\n— Carência para morte acidental: encerrada em 28/09\n\nSeguros Vértice", time: "28/09 · 08:00" },
+    { id: "e2", from: "Distribuidora Góis", address: "cobranca@distgois.com.br", subject: "NOTIFICAÇÃO — débito de R$ 92.400", preview: "Comunicamos a suspensão de fornecimento e o protesto do título em caso de não pagamento…", body: "O BASTIDOR BAR LTDA · Licença municipal nº 4007\n\nDébito vencido: R$ 92.400,00\n\nComunicamos que, não havendo quitação até 01/11, o título será protestado e o fornecimento suspenso.\n\nDistribuidora Góis", time: "29/10 · 09:12" },
+    { id: "e3", from: "Nivaldo Contabilidade", address: "nivaldo@contabil.com.br", subject: "Re: diferença de faturamento", preview: "Tchelo, a diferença entre o declarado e o movimento real está em R$ 380 mil…", body: "Tchelo,\n\nComo conversamos: a diferença entre o faturamento declarado e o movimento real do caixa chega a R$ 380 mil em 14 meses.\n\nAlém disso, há retiradas recorrentes que você diz não ter autorizado. Precisamos conversar sobre isso com calma — e, se for o caso, com um advogado.\n\nNivaldo", time: "29/10 · 15:40" },
+  ],
+  history: [
+    { id: "h1", title: "latrocínio como a perícia diferencia de homicídio", url: "google.com/search?q=latrocinio+pericia", time: "30/10 · 23:50", evidenceId: "search_latrocinio" },
+    { id: "h2", title: "comissão atrasada garçom direitos", url: "trabalhista.br/comissao", time: "26/10 · 08:12" },
+    { id: "h3", title: "passagem são paulo florianópolis terça", url: "viajafacil.com/gru-fln", time: "31/10 · 03:02" },
+    { id: "h4", title: "protesto de título como evitar", url: "sebrae.com.br/protesto", time: "29/10 · 10:02" },
+  ],
+  bank: {
+    password: "4007",
+    hint: "Não é a data do bar (isso é o celular). A nota “senhas” fala no alarme. O código do alarme é 7711 — mas o banco usa o número da licença, que está no e-mail da distribuidora.",
+    holder: "MARCELO ARANTES — BANCO DO COMÉRCIO ····4417",
+    balance: "R$ 7.112,40",
+    txns: [
+      { id: "t1", desc: "PIX enviado — HELENA ARANTES → Agência Vento Sul (passagem)", date: "31/10 · 03:12", amount: "-R$ 3.400,00", out: true, evidenceId: "bank_pix_helena" },
+      { id: "t2", desc: "Depósito em espécie — movimento de sábado (não realizado)", date: "31/10", amount: "R$ 0,00", out: false },
+      { id: "t3", desc: "Distribuidora Góis — pagamento parcial", date: "20/10 · 10:00", amount: "-R$ 18.000,00", out: true },
+      { id: "t4", desc: "Seguros Vértice — parcela da apólice", date: "28/10 · 06:00", amount: "-R$ 420,00", out: true },
+      { id: "t5", desc: "Folha de pagamento — comissões (pagas parcialmente)", date: "05/10 · 09:00", amount: "-R$ 11.200,00", out: true },
+    ],
+  },
+  vault: { code: "777", hint: "A nota diz: mesa 7 × 111. Digite o resultado e aperte =." },
+  trash: [
+    {
+      id: "tr-tchelo-1",
+      type: "foto",
+      label: "Fotos apagadas · câmera do estoque (setor 0x19C2)",
+      fragments: ["02:53 — Jair entra", "no estoque com", "maços de dinheiro", "e abre o alçapão"],
+      recovered:
+        "Sequência de quatro frames recuperada: às 02:53, Jair Bueno entra no estoque de bebidas carregando maços de dinheiro e levanta o alçapão do piso. O último frame mostra a tampa sendo recolocada.",
+      evidenceId: "trash_alcapao",
+    },
+    {
+      id: "tr-tchelo-2",
+      type: "audio",
+      label: "Áudio descartado · gravação ambiente (setor 0x2F08)",
+      fragments: ["ruído de máquina", "de gelo contínuo", "e uma voz dizendo", "“segunda eu quero”"],
+      recovered: "Trecho ambiente confirmando que o áudio do fornecedor foi gravado dentro do próprio bar, ao lado da máquina de gelo.",
+    },
+  ],
+  suspects: [
+    { id: "jair", name: "Jair Bueno", role: "Garçom chefe · 38 anos", avatar: "/people/m10.webp", bio: "Doze anos de casa. Fechava o salão sozinho todas as madrugadas e tinha a única cópia da chave do estoque. Devia quatro meses de comissão — e vinha se servindo do caixa 2 havia mais de um ano." },
+    { id: "helena", name: "Helena Arantes", role: "Esposa · 39 anos", avatar: "/people/f6.webp", bio: "Casada há 14 anos com um homem que morava dentro do próprio bar. Contratou um seguro de vida recíproco três meses antes do crime e comprou uma passagem de ida na madrugada." },
+    { id: "sandro", name: "Sandro Góis", role: "Fornecedor e credor · 51 anos", avatar: "/people/m3.webp", bio: "Distribuidor de bebidas que virou credor informal. Cobrava R$ 92 mil com modos de agiota e esteve no bar naquela noite." },
+  ],
+  interrogations: {
+    jair: [
+      { id: "q1", q: "A que horas você saiu do bar?", a: "Fechei o salão umas duas e pouco e fui embora. O chefe ficou fazendo o caixa, como sempre. Ele gostava daquele momento sozinho, dizia que era a hora mais bonita da noite." },
+      { id: "q2", q: "Você disse que ia “se pagar de um jeito ou de outro”.", a: "Falei com raiva, depois de quatro meses sem comissão. Qualquer um fala. Isso não põe uma barra de ferro na minha mão, detetive.", requiresEvidence: "msg_jair_comissao" },
+      { id: "q3", q: "A planilha do caixa 2 tem R$ 71 mil em “retiradas J.”.", a: "…Eram vales. Adiantamentos que o chefe me devia e eu ia tirando. Ele sabia. Ele… não sabia tudo, tá bom? Mas era MEU dinheiro, era comissão atrasada!", requiresEvidence: "vault_planilha" },
+      { id: "q4", q: "As fotos recuperadas mostram você escondendo dinheiro no alçapão às 02:53.", a: "(Longo silêncio.) Aquilo não prova nada. Dinheiro no alçapão não é corpo no chão. …Eu quero um advogado. AGORA.", requiresEvidence: "trash_alcapao" },
+    ],
+    helena: [
+      { id: "q1", q: "A senhora mandou um PIX às 3h12 da manhã.", a: "Mandei: 3.400 pra agência de viagem. Passagem pra Florianópolis, casa da minha irmã. Eu estava indo embora dele, detetive — não matando por ele. O voo era terça, pode ver no bilhete.", requiresEvidence: "bank_pix_helena" },
+      { id: "q2", q: "O seguro de 500 mil foi ideia sua.", a: "Foi, e é recíproco: se eu morresse, ele recebia igual. A corretora é amiga do Rotary dele. Fiz porque o homem dormia em cima de um caixa cheio num bairro perigoso. Que ironia macabra.", requiresEvidence: "msg_helena_seguro" },
+      { id: "q3", q: "Onde a senhora estava na madrugada?", a: "Em casa, acordada, discutindo com a minha irmã por vídeo até quase quatro da manhã. Duas horas e meia de chamada registrada. Eu chorei a noite inteira por um casamento que já tinha morrido antes dele." },
+    ],
+    sandro: [
+      { id: "q1", q: "O senhor esteve no bar naquela noite?", a: "Estive, por volta de meia-noite e meia. Tomei uma e fui embora antes de uma e meia — o garçom me viu sair, o motoboy do delivery me viu sair, a câmera do posto da esquina me viu sair." },
+      { id: "q2", q: "O seu áudio foi gravado dentro do bar.", a: "E eu neguei em algum momento? Eu disse que estive lá. Cobrar dívida olhando no olho é meu método desde 1994. Agora, matar devedor é péssimo negócio, detetive: morto não paga. Eu perdi 92 mil nessa noite.", requiresEvidence: "audio_gelo" },
+      { id: "q3", q: "O que o senhor viu lá dentro?", a: "Vi o garçom nervoso, indo e voltando do estoque feito barata tonta. E vi o Tchelo com cara de quem ia demitir alguém. Perguntei se tava tudo bem e ele disse: “amanhã eu resolvo um problema antigo aqui dentro”." },
+    ],
+  },
+  cloud: {
+    owner: "J. Bueno",
+    items: [
+      { id: "i1", kind: "search", label: "Buscas recuperadas — 28 a 30/10", detail: "“quanto tempo a polícia leva pra checar alçapão” · “comissão atrasada dá direito a retirar do caixa?” · “latrocínio pena”", evidenceId: "cloud_search" },
+      { id: "i2", kind: "photo", label: "Foto — alçapão aberto", detail: "Tirada às 02:56 de 31/10, dentro do estoque, com maços de notas visíveis no vão do piso." },
+      { id: "i3", kind: "note", label: "Nota apagada — “domingo”", detail: "esperar ele fechar o caixa. abrir gaveta depois. deixar a porta dos fundos aberta pra parecer assalto. o dinheiro fica no buraco até dezembro.", evidenceId: "cloud_note" },
+    ],
+  },
+  motives: [
+    { id: "caixa2", label: "Encobrir o desvio de R$ 71 mil do caixa 2 prestes a ser descoberto pelo contador" },
+    { id: "seguro", label: "Receber o seguro de vida de R$ 500 mil" },
+    { id: "divida", label: "Cobrar à força a dívida de R$ 92 mil" },
+    { id: "assalto", label: "Assalto comum seguido de morte" },
+  ],
+  methods: [
+    { id: "barra", label: "Golpe único na nuca com barra de ferro do estoque + cena de assalto forjada" },
+    { id: "faca", label: "Facada durante luta corporal" },
+    { id: "arma", label: "Disparo de arma de fogo" },
+    { id: "queda", label: "Queda acidental no escritório" },
+  ],
+  web: [
+    { id: "w1", title: "Dono de bar tradicional é morto durante suposto assalto", source: "Diário da Cidade", url: "diariodacidade.com/bastidor", body: "Marcelo Arantes, o Tchelo, dono do bar O Bastidor há 11 anos, foi encontrado morto no escritório do estabelecimento. A principal linha é latrocínio, mas a polícia estranha o fato de o cofre não ter sido violado.", keywords: ["tchelo", "marcelo", "arantes", "bastidor", "bar", "morto"] },
+    { id: "w2", title: "Como a perícia distingue latrocínio de cena forjada", source: "Ciência Forense BR", url: "cienciaforense.br/cena-forjada", body: "Em latrocínios reais, o autor busca o bem de maior valor e deixa rastro de pressa. Cenas forjadas costumam exibir contradições: itens valiosos intocados, ausência de arrombamento e desordem seletiva, concentrada apenas onde interessa à narrativa.", keywords: ["latrocínio", "latrocinio", "cena forjada", "perícia", "pericia"] },
+    { id: "w3", title: "Caixa 2 em bares: o rombo que ninguém declara", source: "Economia Real", url: "economiareal.com/caixa2", body: "Planilhas paralelas são comuns no setor de bares e restaurantes — e se tornam armadilha quando um funcionário com acesso ao dinheiro começa a se servir. Como o valor não existe oficialmente, o furto não pode ser denunciado sem autoincriminação.", keywords: ["caixa 2", "caixa2", "planilha", "desvio", "contador"] },
+  ],
+  hints: [
+    "O bar era o filho dele. A senha de 4 dígitos é a data de abertura — a esposa diz na primeira pergunta.",
+    "02/09 → 0209. Depois leia as Notas: ele anotou o código do cofre da Calculadora.",
+    "O cofre pede mesa 7 × 111 = 777. Lá dentro está o caixa 2 e a coluna de retiradas com a inicial de alguém.",
+    "A última foto mostra o caixa FECHADO e cheio às 02:41. Se a cena encontrada tinha o caixa aberto e vazio, alguém a montou depois.",
+    "Vá em Ajustes → Lixeira forense e remonte os setores apagados. Há uma sequência de fotos do estoque.",
+    "Helena tem 2h30 de chamada registrada e Sandro saiu às 01:30 com três testemunhas. Risque os dois.",
+    "A tríade: a cobrança de comissão, a planilha do caixa 2 com as retiradas e as fotos do alçapão recuperadas da lixeira.",
+  ],
+  epilogues: {
+    perfect: {
+      title: "CASO ENCERRADO",
+      text: [
+        "A equipe levantou o alçapão do estoque às 11h40 de segunda-feira. Havia R$ 64.300 em maços presos com elástico de cozinha e uma barra de ferro embrulhada em pano de prato.",
+        "Jair Bueno confessou depois de ver as próprias fotos recuperadas da lixeira do celular: havia apagado tudo do aparelho, mas não dos setores.",
+        "O contador tinha reunião marcada para segunda-feira às 9h. Tchelo descobriria as retiradas em menos de doze horas.",
+        "Helena embarcou para Florianópolis na terça, como estava planejado desde antes de tudo. O Bastidor reabriu em março, com os antigos funcionários e uma placa discreta sobre a mesa 7.",
+      ],
+    },
+    weak: {
+      title: "ARQUIVADO COMO LATROCÍNIO",
+      text: [
+        "Você apontou o autor certo, mas a acusação ficou de pé em um pé só. Sem o caixa 2, sem as fotos do alçapão e sem a cobrança de comissão, a tese de assalto prevaleceu.",
+        "O dinheiro continuou no alçapão até o bar ser vendido. Quem comprou reformou o piso e nunca entendeu por que havia elástico de cozinha no vão.",
+        "Reabra o caso: a lixeira do aparelho ainda guarda os setores.",
+      ],
+    },
+    wrong: {
+      title: "INQUÉRITO ANULADO",
+      text: [
+        "A viúva tinha duas horas e meia de videochamada registrada; o fornecedor, três testemunhas e a câmera de um posto. O caso ruiu antes do almoço.",
+        "O verdadeiro autor seguiu trabalhando no bar durante o inventário, atendendo as mesas com um sorriso triste e recebendo condolências dos clientes antigos.",
+        "O caso virou estatística de latrocínio. Reabra o dossiê.",
+      ],
+    },
+  },
+};
